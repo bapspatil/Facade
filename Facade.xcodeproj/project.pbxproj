@@ -66,10 +66,13 @@
 		4B55B0AB20F9FC7B00D687D2 /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B55B06F20F9FC7B00D687D2 /* Icon-114.png */; };
 		4B55B0AC20F9FC7B00D687D2 /* Icon-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B55B07020F9FC7B00D687D2 /* Icon-32.png */; };
 		4B55B0AD20F9FC7B00D687D2 /* Icon-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B55B07120F9FC7B00D687D2 /* Icon-512.png */; };
+		4BD54B5420FA2A7800976E73 /* TealBlueTitle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BD54B5120FA2A7800976E73 /* TealBlueTitle@2x.png */; };
+		4BD54B5520FA2A7800976E73 /* TealBlueTitle@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BD54B5220FA2A7800976E73 /* TealBlueTitle@1x.png */; };
+		4BD54B5620FA2A7800976E73 /* TealBlueTitle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BD54B5320FA2A7800976E73 /* TealBlueTitle@3x.png */; };
+		4BD54B5820FA2B5000976E73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BEE3D0720F9941A00DAFC12 /* Assets.xcassets */; };
 		4BEE3D0120F9941800DAFC12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEE3D0020F9941800DAFC12 /* AppDelegate.swift */; };
 		4BEE3D0320F9941800DAFC12 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEE3D0220F9941800DAFC12 /* ViewController.swift */; };
 		4BEE3D0620F9941800DAFC12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BEE3D0420F9941800DAFC12 /* Main.storyboard */; };
-		4BEE3D0820F9941A00DAFC12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BEE3D0720F9941A00DAFC12 /* Assets.xcassets */; };
 		4BEE3D0B20F9941A00DAFC12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BEE3D0920F9941A00DAFC12 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -134,6 +137,9 @@
 		4B55B06F20F9FC7B00D687D2 /* Icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-114.png"; sourceTree = "<group>"; };
 		4B55B07020F9FC7B00D687D2 /* Icon-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-32.png"; sourceTree = "<group>"; };
 		4B55B07120F9FC7B00D687D2 /* Icon-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-512.png"; sourceTree = "<group>"; };
+		4BD54B5120FA2A7800976E73 /* TealBlueTitle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TealBlueTitle@2x.png"; sourceTree = "<group>"; };
+		4BD54B5220FA2A7800976E73 /* TealBlueTitle@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TealBlueTitle@1x.png"; sourceTree = "<group>"; };
+		4BD54B5320FA2A7800976E73 /* TealBlueTitle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TealBlueTitle@3x.png"; sourceTree = "<group>"; };
 		4BEE3CFD20F9941800DAFC12 /* Facade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Facade.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BEE3D0020F9941800DAFC12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BEE3D0220F9941800DAFC12 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +163,9 @@
 		4B55B03320F9FC7B00D687D2 /* Design */ = {
 			isa = PBXGroup;
 			children = (
+				4BD54B5220FA2A7800976E73 /* TealBlueTitle@1x.png */,
+				4BD54B5120FA2A7800976E73 /* TealBlueTitle@2x.png */,
+				4BD54B5320FA2A7800976E73 /* TealBlueTitle@3x.png */,
 				4B55B03420F9FC7B00D687D2 /* Icon-29.png */,
 				4B55B03520F9FC7B00D687D2 /* Icon-16.png */,
 				4B55B03620F9FC7B00D687D2 /* Icon-256.png */,
@@ -325,9 +334,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BD54B5520FA2A7800976E73 /* TealBlueTitle@1x.png in Resources */,
 				4B55B09820F9FC7B00D687D2 /* Montserrat-Light.ttf in Resources */,
 				4B55B07520F9FC7B00D687D2 /* Icon-120.png in Resources */,
 				4B55B08F20F9FC7B00D687D2 /* Icon-172.png in Resources */,
+				4BD54B5420FA2A7800976E73 /* TealBlueTitle@2x.png in Resources */,
 				4B55B09520F9FC7B00D687D2 /* Montserrat-LightItalic.ttf in Resources */,
 				4B55B08220F9FC7B00D687D2 /* Icon-72.png in Resources */,
 				4B55B09020F9FC7B00D687D2 /* Icon-167.png in Resources */,
@@ -339,10 +350,10 @@
 				4B55B09F20F9FC7B00D687D2 /* Montserrat-SemiBold.ttf in Resources */,
 				4B55B09B20F9FC7B00D687D2 /* Montserrat-Thin.ttf in Resources */,
 				4B55B07F20F9FC7B00D687D2 /* Icon-180.png in Resources */,
-				4BEE3D0820F9941A00DAFC12 /* Assets.xcassets in Resources */,
 				4B55B08420F9FC7B00D687D2 /* Icon-196.png in Resources */,
 				4BEE3D0620F9941800DAFC12 /* Main.storyboard in Resources */,
 				4B55B07A20F9FC7B00D687D2 /* Icon-76.png in Resources */,
+				4BD54B5820FA2B5000976E73 /* Assets.xcassets in Resources */,
 				4B55B09D20F9FC7B00D687D2 /* Montserrat-MediumItalic.ttf in Resources */,
 				4B55B09920F9FC7B00D687D2 /* Montserrat-ThinItalic.ttf in Resources */,
 				4B55B07C20F9FC7B00D687D2 /* Icon-48.png in Resources */,
@@ -351,6 +362,7 @@
 				4B55B09E20F9FC7B00D687D2 /* Montserrat-BlackItalic.ttf in Resources */,
 				4B55B08920F9FC7B00D687D2 /* OFL.txt in Resources */,
 				4B55B0AD20F9FC7B00D687D2 /* Icon-512.png in Resources */,
+				4BD54B5620FA2A7800976E73 /* TealBlueTitle@3x.png in Resources */,
 				4B55B07B20F9FC7B00D687D2 /* Icon-60.png in Resources */,
 				4B55B08D20F9FC7B00D687D2 /* Icon-57.png in Resources */,
 				4B55B08720F9FC7B00D687D2 /* HindMadurai-SemiBold.ttf in Resources */,

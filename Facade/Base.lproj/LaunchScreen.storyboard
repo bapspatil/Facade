@@ -19,17 +19,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="768" image="Splash Screen Logo" translatesAutoresizingMaskIntoConstraints="NO" id="xia-ia-c6O">
-                                <rect key="frame" x="113" y="336" width="150" height="150"/>
+                                <rect key="frame" x="112.66666666666669" y="336" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="o7e-DQ-xW9"/>
                                     <constraint firstAttribute="width" constant="150" id="q4O-UM-mRg"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bapusaheb Patil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uoy-VR-Ofr">
+                                <rect key="frame" x="126.33333333333331" y="731" width="123" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.2196078431372549" green="0.38039215686274508" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.90588235294117647" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xia-ia-c6O" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="BbZ-Hg-wNu"/>
+                            <constraint firstItem="Uoy-VR-Ofr" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="RjC-7v-kCH"/>
                             <constraint firstItem="xia-ia-c6O" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="f7U-A0-O2A"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Uoy-VR-Ofr" secondAttribute="bottom" constant="26" id="jQA-Nq-qGE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

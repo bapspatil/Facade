@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -9,21 +9,151 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HindMadurai-SemiBold.ttf">
+            <string>HindMadurai-SemiBold</string>
+        </array>
+        <array key="Montserrat-ExtraBold.ttf">
+            <string>Montserrat-ExtraBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Facade" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0i-0w-Nxf" userLabel="MainContainerView">
+                                <rect key="frame" x="35" y="90" width="250" height="320"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunshine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yth-f4-SJl">
+                                        <rect key="frame" x="91" y="250" width="68" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="HindMadurai-SemiBold" family="Hind Madurai" pointSize="17"/>
+                                        <color key="textColor" red="0.2196078431372549" green="0.38039215686274508" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jph-TJ-iyU" userLabel="BlankView">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="K1T-Za-YjH"/>
+                                            <constraint firstAttribute="width" constant="250" id="eEY-bt-YRu"/>
+                                        </constraints>
+                                    </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash.png" translatesAutoresizingMaskIntoConstraints="NO" id="HgG-tw-e04">
+                                        <rect key="frame" x="5" y="5" width="240" height="240"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="6fK-er-dkd"/>
+                                            <constraint firstAttribute="height" constant="240" id="rzL-vK-tk0"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZ3-cT-2xD">
+                                        <rect key="frame" x="225" y="225" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="5ju-BD-7EO"/>
+                                            <constraint firstAttribute="height" constant="50" id="lXt-La-Vvu"/>
+                                        </constraints>
+                                        <state key="normal" title="Redo" image="Redo.png">
+                                            <color key="titleShadowColor" red="0.21960784310000001" green="0.3803921569" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTw-TJ-dY1" userLabel="SwatchView">
+                                        <rect key="frame" x="21" y="274" width="209" height="38"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ZR-zT-LCx" userLabel="Swatch 1">
+                                                <rect key="frame" x="8" y="3" width="32" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="1" green="0.90588235294117647" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRf-DH-RG5" userLabel="Swatch 2">
+                                                <rect key="frame" x="48" y="3" width="32" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="1" green="0.34901960784313724" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncU-bS-nfm" userLabel="Swatch 3">
+                                                <rect key="frame" x="88" y="3" width="32" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.066666666666666666" green="0.61568627450980395" blue="0.64313725490196072" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybT-Gc-q4n" userLabel="Swatch 4">
+                                                <rect key="frame" x="128" y="3" width="32" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.2196078431372549" green="0.38039215686274508" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yyA-n7-kFw" userLabel="Swatch 5">
+                                                <rect key="frame" x="168" y="3" width="32" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.20784313725490194" green="0.65490196078431373" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="209" id="YQz-BW-gd0"/>
+                                            <constraint firstAttribute="height" constant="38" id="gfl-fw-dHm"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="VZ3-cT-2xD" firstAttribute="leading" secondItem="Jph-TJ-iyU" secondAttribute="trailing" constant="-25" id="328-wR-Ca3"/>
+                                    <constraint firstItem="yth-f4-SJl" firstAttribute="top" secondItem="Jph-TJ-iyU" secondAttribute="bottom" id="3q1-Cr-g6S"/>
+                                    <constraint firstItem="BTw-TJ-dY1" firstAttribute="centerX" secondItem="M0i-0w-Nxf" secondAttribute="centerX" id="BZ2-Tk-nTc"/>
+                                    <constraint firstItem="yth-f4-SJl" firstAttribute="centerX" secondItem="Jph-TJ-iyU" secondAttribute="centerX" id="Cgr-Ux-TD7"/>
+                                    <constraint firstItem="HgG-tw-e04" firstAttribute="centerX" secondItem="Jph-TJ-iyU" secondAttribute="centerX" id="O1t-rP-o2d"/>
+                                    <constraint firstItem="HgG-tw-e04" firstAttribute="centerY" secondItem="Jph-TJ-iyU" secondAttribute="centerY" id="d2V-1c-81P"/>
+                                    <constraint firstAttribute="height" constant="320" id="d6X-Ku-2fk"/>
+                                    <constraint firstAttribute="bottom" secondItem="BTw-TJ-dY1" secondAttribute="bottom" constant="8" id="h4X-BV-6aC"/>
+                                    <constraint firstItem="Jph-TJ-iyU" firstAttribute="centerX" secondItem="M0i-0w-Nxf" secondAttribute="centerX" id="hr4-Sc-eoK"/>
+                                    <constraint firstItem="VZ3-cT-2xD" firstAttribute="top" secondItem="Jph-TJ-iyU" secondAttribute="bottom" constant="-25" id="lyh-Wl-1DN"/>
+                                    <constraint firstAttribute="width" constant="250" id="qmB-K0-DdI"/>
+                                    <constraint firstAttribute="top" secondItem="Jph-TJ-iyU" secondAttribute="top" id="s3w-Gu-PbB"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TealBlueTitleOnly.png" translatesAutoresizingMaskIntoConstraints="NO" id="LiP-dx-JtR">
+                                <rect key="frame" x="70" y="36" width="180" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="Efb-OR-45L"/>
+                                    <constraint firstAttribute="height" constant="45" id="cLZ-rW-u1f"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36U-aq-Zy7">
+                                <rect key="frame" x="85" y="418" width="150" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.34901960784313724" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Blz-b4-ZWe"/>
+                                    <constraint firstAttribute="width" constant="150" id="wEA-vh-nTV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-ExtraBold" family="Montserrat" pointSize="21"/>
+                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                <state key="normal" title="SHARE">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="0.90588235294117647" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="36U-aq-Zy7" secondAttribute="bottom" constant="12" id="4aG-VM-Jk8"/>
+                            <constraint firstItem="LiP-dx-JtR" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="6qt-ff-K0a"/>
+                            <constraint firstItem="36U-aq-Zy7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bPJ-zi-5lt"/>
+                            <constraint firstItem="M0i-0w-Nxf" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="d2B-v9-81Z"/>
+                            <constraint firstItem="M0i-0w-Nxf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="e9e-mh-dZI"/>
+                            <constraint firstItem="LiP-dx-JtR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="rWT-aE-UyY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="25.637181409295355"/>
+            <point key="canvasLocation" x="31.875" y="25"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Redo.png" width="768" height="768"/>
+        <image name="Splash.png" width="768" height="768"/>
+        <image name="TealBlueTitleOnly.png" width="1000" height="250"/>
+    </resources>
 </document>

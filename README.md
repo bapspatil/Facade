@@ -2,4 +2,4 @@
 An iOS app that decorates and transforms an image.
 </br></br>
 ## Screenshots
-<img src="./screenshots/screen0.png" width="40%">
+<img src="./screenshots/screen0.png" width="40%">&emsp;<img src="./screenshots/screen1.png" width="38.5%">

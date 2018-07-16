@@ -30,7 +30,7 @@
                                 <rect key="frame" x="35" y="90" width="250" height="320"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunshine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yth-f4-SJl">
-                                        <rect key="frame" x="91" y="250" width="68" height="23.5"/>
+                                        <rect key="frame" x="90" y="250" width="70.5" height="20"/>
                                         <fontDescription key="fontDescription" name="HindMadurai-SemiBold" family="Hind Madurai" pointSize="17"/>
                                         <color key="textColor" red="0.2196078431372549" green="0.38039215686274508" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -60,7 +60,7 @@
                                             <color key="titleShadowColor" red="0.21960784310000001" green="0.3803921569" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="share:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SIZ-kK-4g7"/>
+                                            <action selector="startOver:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WsP-3h-izu"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTw-TJ-dY1" userLabel="SwatchView">
@@ -150,7 +150,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="startOver:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Prb-LN-Obk"/>
+                                    <action selector="share:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SJQ-4d-jUw"/>
                                 </connections>
                             </button>
                         </subviews>

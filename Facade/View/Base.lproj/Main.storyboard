@@ -30,7 +30,7 @@
                                 <rect key="frame" x="35" y="90" width="250" height="320"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunshine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yth-f4-SJl">
-                                        <rect key="frame" x="90" y="250" width="70.5" height="20"/>
+                                        <rect key="frame" x="91" y="250" width="68" height="23.5"/>
                                         <fontDescription key="fontDescription" name="HindMadurai-SemiBold" family="Hind Madurai" pointSize="17"/>
                                         <color key="textColor" red="0.2196078431372549" green="0.38039215686274508" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -43,12 +43,16 @@
                                             <constraint firstAttribute="width" constant="250" id="eEY-bt-YRu"/>
                                         </constraints>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash.png" translatesAutoresizingMaskIntoConstraints="NO" id="HgG-tw-e04" userLabel="CreationImageView">
+                                    <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash.png" translatesAutoresizingMaskIntoConstraints="NO" id="HgG-tw-e04" userLabel="CreationImageView">
                                         <rect key="frame" x="5" y="5" width="240" height="240"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="240" id="6fK-er-dkd"/>
                                             <constraint firstAttribute="height" constant="240" id="rzL-vK-tk0"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="AFh-eh-JUP" appends="YES" id="ZTp-Fh-DRQ"/>
+                                        </connections>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZ3-cT-2xD">
                                         <rect key="frame" x="225" y="225" width="50" height="50"/>
@@ -115,6 +119,7 @@
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="VZ3-cT-2xD" firstAttribute="leading" secondItem="Jph-TJ-iyU" secondAttribute="trailing" constant="-25" id="328-wR-Ca3"/>
                                     <constraint firstItem="yth-f4-SJl" firstAttribute="top" secondItem="Jph-TJ-iyU" secondAttribute="bottom" id="3q1-Cr-g6S"/>
@@ -150,7 +155,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="share:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SJQ-4d-jUw"/>
+                                    <action selector="share:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wta-m3-o20"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -170,11 +175,14 @@
                         <outlet property="colorsContainer" destination="BTw-TJ-dY1" id="iLk-gT-7uA"/>
                         <outlet property="creationFrame" destination="Jph-TJ-iyU" id="xvg-th-NqJ"/>
                         <outlet property="creationImageView" destination="HgG-tw-e04" id="ZGo-XB-lJP"/>
-                        <outlet property="shareButton" destination="36U-aq-Zy7" id="4tY-S4-Cow"/>
-                        <outlet property="startOverButton" destination="VZ3-cT-2xD" id="wje-LQ-Rin"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="AFh-eh-JUP" userLabel="PickTapGestureRecognizer">
+                    <connections>
+                        <action selector="startOver:" destination="BYZ-38-t0r" id="xVk-EF-b68"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="31.875" y="25"/>
         </scene>

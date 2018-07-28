@@ -50,9 +50,6 @@
                                             <constraint firstAttribute="width" constant="240" id="6fK-er-dkd"/>
                                             <constraint firstAttribute="height" constant="240" id="rzL-vK-tk0"/>
                                         </constraints>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="AFh-eh-JUP" appends="YES" id="ZTp-Fh-DRQ"/>
-                                        </connections>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZ3-cT-2xD">
                                         <rect key="frame" x="225" y="225" width="50" height="50"/>
@@ -178,11 +175,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="AFh-eh-JUP" userLabel="PickTapGestureRecognizer">
-                    <connections>
-                        <action selector="startOver:" destination="BYZ-38-t0r" id="xVk-EF-b68"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="31.875" y="25"/>
         </scene>

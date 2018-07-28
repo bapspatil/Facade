@@ -10,7 +10,7 @@ import UIKit
 import Photos
 import AVFoundation
 
-class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var creationFrame: UIView!
     @IBOutlet weak var creationImageView: UIImageView!
@@ -65,6 +65,27 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         if let index = colorSwatches.index(where: {$0.caption == creation.colorSwatch.caption}) {
             savedColorSwatchIndex = index
         }
+    }
+    
+    @objc func pickImage(_ sender: UITapGestureRecognizer) {
+        //print("Picking image")
+        creation.reset(colorSwatch: colorSwatches[savedColorSwatchIndex])
+        creationImageView.image = creation.image
+        creationFrame.backgroundColor = creation.colorSwatch.color
+        colorLabel.text = creation.colorSwatch.caption
+        displayImagePickingOptions()
+    }
+    
+    @objc func moveImageView(_ sender: UIPanGestureRecognizer) {
+        print("moving")
+    }
+    
+    @objc func rotateImageView(_ sender: UIRotationGestureRecognizer) {
+        print("rotating")
+    }
+    
+    @objc func scaleImageView(_ sender: UIPinchGestureRecognizer) {
+        print("scaling")
     }
     
     func displayImagePickingOptions() {
@@ -236,6 +257,23 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     func configure() {
+        // Adding gestures
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(moveImageView(_:)))
+        panGestureRecognizer.delegate = self
+        creationImageView.addGestureRecognizer(panGestureRecognizer)
+        
+        let rotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(rotateImageView(_:)))
+        rotationGestureRecognizer.delegate = self
+        creationImageView.addGestureRecognizer(rotationGestureRecognizer)
+        
+        let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(scaleImageView(_:)))
+        pinchGestureRecognizer.delegate = self
+        creationImageView.addGestureRecognizer(pinchGestureRecognizer)
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(pickImage(_:)))
+        tapGestureRecognizer.delegate = self
+        creationImageView.addGestureRecognizer(tapGestureRecognizer)
+        
         //collect images
         collectLocalImageSet()
         

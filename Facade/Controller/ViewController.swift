@@ -77,15 +77,15 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     @objc func moveImageView(_ sender: UIPanGestureRecognizer) {
-        print("moving")
+        //print("moving")
     }
     
     @objc func rotateImageView(_ sender: UIRotationGestureRecognizer) {
-        print("rotating")
+        //print("rotating")
     }
     
     @objc func scaleImageView(_ sender: UIPinchGestureRecognizer) {
-        print("scaling")
+        //print("scaling")
     }
     
     func displayImagePickingOptions() {

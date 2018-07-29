@@ -58,6 +58,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     @IBAction func applyColor(_ sender: UIButton) {
+        //print("Applying color")
         if let index = colorsContainer.subviews.index(of: sender) {
             creation.colorSwatch = colorSwatches[index]
             creationFrame.backgroundColor = creation.colorSwatch.color
@@ -66,6 +67,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     @IBAction func share(_ sender: Any) {
+        
+        displaySharingOptions()
         
         if let index = colorSwatches.index(where: {$0.caption == creation.colorSwatch.caption}) {
             savedColorSwatchIndex = index
@@ -117,7 +120,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             
             let status = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
             
-            let noPermissionMessage = "Looks like FrameIT have access to your camera:( Please use Setting app on your device to permit FrameIT accessing your camera"
+            let noPermissionMessage = "Looks like Facade have access to your camera:( Please use Setting app on your device to permit Facade accessing your camera"
             
             switch status {
             case .notDetermined:
@@ -145,7 +148,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         if UIImagePickerController.isSourceTypeAvailable(sourceType) {
             
             let status = PHPhotoLibrary.authorizationStatus()
-            let noPermissionMessage = "Looks like FrameIT have access to your photos:( Please use Setting app on your device to permit FrameIT accessing your library"
+            let noPermissionMessage = "Looks like Facade have access to your photos:( Please use Setting app on your device to permit Facade accessing your library"
             
             switch status {
             case .notDetermined:
@@ -209,7 +212,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     func collectLocalImageSet() {
         localImages.removeAll()
-        let imageNames = ["Splash.png"]
+        let imageNames = ["Boats", "Car", "Crocodile", "Park", "TShirts"]
         
         for name in imageNames {
             if let image = UIImage.init(named: name) {
@@ -326,5 +329,29 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         // Do any additional setup after loading the view, typically from a nib.
         
         configure()
+    }
+    
+    func displaySharingOptions() {
+        // define content to share
+        let note = "Facade"
+        let image = composeCreationImage()
+        let items = [image as Any, note as Any]
+        
+        // create activity view controller
+        let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = view // so that iPads won't crash
+        
+        // present the view controller
+        present(activityViewController, animated: true, completion: nil)
+    }
+    
+    func composeCreationImage() -> UIImage{
+        
+        UIGraphicsBeginImageContextWithOptions(creationFrame.bounds.size, false, 0)
+        creationFrame.drawHierarchy(in: creationFrame.bounds, afterScreenUpdates: true)
+        let screenshot = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return screenshot
     }
 }

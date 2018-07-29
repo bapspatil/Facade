@@ -23,6 +23,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     let defaults = UserDefaults.standard
     var colorSwatches = [ColorSwatch].init()
     
+    var initialImageViewOffset = CGPoint()
+    
     let colorUserDefaultsKey = "ColorIndex"
     var savedColorSwatchIndex: Int {
         get {
@@ -39,53 +41,35 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         }
     }
     
-    @IBAction func startOver(_ sender: Any) {
-        //print("Starting over")
-        creation.reset(colorSwatch: colorSwatches[savedColorSwatchIndex])
-        creationImageView.image = creation.image
-        creationFrame.backgroundColor = creation.colorSwatch.color
-        colorLabel.text = creation.colorSwatch.caption
+    @objc func changeImage(_ sender: UITapGestureRecognizer) {
         displayImagePickingOptions()
     }
     
+    @IBAction func startOver(_ sender: Any) {
+        creation.reset(colorSwatch: colorSwatches[savedColorSwatchIndex])
+        
+        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            self.creationImageView.transform = .identity
+        }) { (success) in
+            self.animateImageChange()
+            self.creationFrame.backgroundColor = self.creation.colorSwatch.color
+            self.colorLabel.text = self.creation.colorSwatch.caption
+        }
+    }
+    
     @IBAction func applyColor(_ sender: UIButton) {
-        //print("Applying color")
         if let index = colorsContainer.subviews.index(of: sender) {
             creation.colorSwatch = colorSwatches[index]
             creationFrame.backgroundColor = creation.colorSwatch.color
             colorLabel.text = creation.colorSwatch.caption
-            
-            // Save selected color in UserDefaults
-            savedColorSwatchIndex = index
         }
     }
     
     @IBAction func share(_ sender: Any) {
-        //print("Sharing")
+        
         if let index = colorSwatches.index(where: {$0.caption == creation.colorSwatch.caption}) {
             savedColorSwatchIndex = index
         }
-    }
-    
-    @objc func pickImage(_ sender: UITapGestureRecognizer) {
-        //print("Picking image")
-        creation.reset(colorSwatch: colorSwatches[savedColorSwatchIndex])
-        creationImageView.image = creation.image
-        creationFrame.backgroundColor = creation.colorSwatch.color
-        colorLabel.text = creation.colorSwatch.caption
-        displayImagePickingOptions()
-    }
-    
-    @objc func moveImageView(_ sender: UIPanGestureRecognizer) {
-        //print("moving")
-    }
-    
-    @objc func rotateImageView(_ sender: UIRotationGestureRecognizer) {
-        //print("rotating")
-    }
-    
-    @objc func scaleImageView(_ sender: UIPinchGestureRecognizer) {
-        //print("scaling")
     }
     
     func displayImagePickingOptions() {
@@ -116,10 +100,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         alertController.addAction(randomAction)
         
         // create cancel action
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let canceclAction = UIAlertAction(title: "Cancel", style: .cancel)
         
         // add cancel action to alert controller
-        alertController.addAction(cancelAction)
+        alertController.addAction(canceclAction)
         
         present(alertController, animated: true) {
             // code to execute after the controller finished presenting
@@ -252,12 +236,36 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     func processPicked(image: UIImage?) {
         if let newImage = image {
             creation.image = newImage
-            creationImageView.image = creation.image
+            //creationImageView.image = creation.image
+            animateImageChange()
         }
     }
     
+    func animateImageChange() {
+        UIView.transition(with: self.creationImageView, duration: 0.4, options: .transitionCrossDissolve, animations: {
+            self.creationImageView.image = self.creation.image
+        }, completion: nil)
+    }
+    
     func configure() {
-        // Adding gestures
+        // collect images
+        collectLocalImageSet()
+        
+        // collect colors
+        collectColors()
+        
+        // set creation data object
+        creation.colorSwatch = colorSwatches[savedColorSwatchIndex]
+        
+        // apply creation data to the views
+        creationImageView.image = creation.image
+        creationFrame.backgroundColor = creation.colorSwatch.color
+        colorLabel.text = creation.colorSwatch.caption
+        
+        // create tap gesture recognizer
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(changeImage(_:)))
+        creationImageView.addGestureRecognizer(tapGestureRecognizer)
+        
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(moveImageView(_:)))
         panGestureRecognizer.delegate = self
         creationImageView.addGestureRecognizer(panGestureRecognizer)
@@ -269,24 +277,48 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(scaleImageView(_:)))
         pinchGestureRecognizer.delegate = self
         creationImageView.addGestureRecognizer(pinchGestureRecognizer)
+    }
+    
+    @objc func moveImageView(_ sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: creationImageView.superview)
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(pickImage(_:)))
-        tapGestureRecognizer.delegate = self
-        creationImageView.addGestureRecognizer(tapGestureRecognizer)
+        if sender.state == .began {
+            initialImageViewOffset = creationImageView.frame.origin
+        }
         
-        //collect images
-        collectLocalImageSet()
+        let position = CGPoint(x: translation.x + initialImageViewOffset.x - creationImageView.frame.origin.x, y: translation.y + initialImageViewOffset.y - creationImageView.frame.origin.y)
         
-        //collect colors
-        collectColors()
-        
-        //set creation data object
-        creation.colorSwatch = colorSwatches[savedColorSwatchIndex]
-        
-        // apply creation data to the views
-        creationImageView.image = creation.image
-        creationFrame.backgroundColor = creation.colorSwatch.color
-        colorLabel.text = creation.colorSwatch.caption
+        creationImageView.transform = creationImageView.transform.translatedBy(x: position.x, y: position.y)
+    }
+    
+    @objc func rotateImageView(_ sender: UIRotationGestureRecognizer) {
+        creationImageView.transform = creationImageView.transform.rotated(by: sender.rotation)
+        sender.rotation = 0
+    }
+    
+    @objc func scaleImageView(_ sender: UIPinchGestureRecognizer) {
+        creationImageView.transform = creationImageView.transform.scaledBy(x: sender.scale, y: sender.scale)
+        sender.scale = 1
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
+                           shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer)
+        -> Bool {
+            
+            // simultaneous gesture recognition will only be supported for creationImageView
+            if gestureRecognizer.view != creationImageView {
+                return false
+            }
+            
+            // neither of the recognized gestures should not be tap gesture
+            if gestureRecognizer is UITapGestureRecognizer
+                || otherGestureRecognizer is UITapGestureRecognizer
+                || gestureRecognizer is UIPanGestureRecognizer
+                || otherGestureRecognizer is UIPanGestureRecognizer {
+                return false
+            }
+            
+            return true
     }
     
     override func viewDidLoad() {
@@ -295,5 +327,4 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         configure()
     }
-    
 }

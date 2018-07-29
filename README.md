@@ -7,6 +7,12 @@ An iOS app that decorates and transforms an image.
 
 <img src="./screenshots/screen0.png" width="40%">&emsp;<img src="./screenshots/screen1.png" width="38.5%">
 
+## Libraries & Frameworks
+
+* [UIKit](https://developer.apple.com/documentation/uikit)
+* [PhotoKit](https://developer.apple.com/documentation/photokit)
+* [AVFoundation](https://developer.apple.com/av-foundation/)
+
 ## Developed By
 
 Bapusaheb Patil
